@@ -1,4 +1,7 @@
-# singtel-test
+# Singtel Test
+
+[![CircleCI](https://circleci.com/gh/ruchern/singtel-test.svg?style=svg&circle-token=29c1a38a09c610d0b306dd64cce9b2ddf86e21d6)](https://circleci.com/gh/ruchern/singtel-test)
+[![codecov](https://codecov.io/gh/ruchern/singtel-test/branch/master/graph/badge.svg?token=0lXuOtUgHC)](https://codecov.io/gh/ruchern/singtel-test)
 
 > A Vue.js project
 
