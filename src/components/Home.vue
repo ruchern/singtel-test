@@ -1,19 +1,30 @@
 <template>
-  <section>
-    <h1>Progress Bar Demo</h1>
+  <section class="hero is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-vcentered has-text-centered">
+          <div class="column is-half is-offset-one-quarter">
+            <h1 class="title">Progress Bar Demo</h1>
 
-    <progress-bar :id="index" :bar="bar" :key="index" v-for="(bar, index) in items.bars"></progress-bar>
+            <h2 class="subtitle has-text-weight-bold">Limit: {{ items.limit }}%</h2>
 
-    <label for="selectProgressBar">Select Progress Bar</label>
+            <progress-bar :id="index" :bar="bar" :limit="items.limit" :key="index"
+                          v-for="(bar, index) in items.bars"></progress-bar>
 
-    <select name="selectProgressBar" id="selectProgressBar" @change="onChange">
-      <option :value="index" :key="index" v-for="(bar, index) in items.bars">
-        Progress Bar {{ index + 1 }}
-      </option>
-    </select>
+            <label for="selectProgressBar">Select Progress Bar</label>
 
-    <progress-button :button="button" :key="index" v-for="(button, index) in items.buttons"
-                     @setValue="setValue"></progress-button>
+            <select name="selectProgressBar" id="selectProgressBar" @change="onChange">
+              <option :value="index" :key="index" v-for="(bar, index) in items.bars">
+                Progress Bar {{ index + 1 }}
+              </option>
+            </select>
+
+            <progress-button :button="button" :key="index" v-for="(button, index) in items.buttons"
+                             @setValue="setValue"></progress-button>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -44,7 +55,9 @@
       },
       setValue (value) {
         const oldValue = this.items.bars[this.selectedProgressBar]
-        const newValue = oldValue + value
+        let newValue = oldValue + value
+
+        if (newValue <= 0) newValue = 0
 
         this.$set(this.items.bars, this.selectedProgressBar, newValue)
       }
