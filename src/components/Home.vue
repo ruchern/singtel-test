@@ -63,7 +63,7 @@
 
         if (newValue <= 0) newValue = 0
 
-        this.items.bars[this.selectedProgressBar] = newValue
+        this.$set(this.items.bars, this.selectedProgressBar, newValue)
       }
     }
   }
