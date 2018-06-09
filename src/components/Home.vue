@@ -11,14 +11,18 @@
             <progress-bar :id="index" :bar="bar" :limit="items.limit" :key="index"
                           v-for="(bar, index) in items.bars"></progress-bar>
 
-            <label for="selectProgressBar">Select Progress Bar</label>
+            <div class="select is-medium is-rounded">
+              <select name="selectProgressBar" id="selectProgressBar" @change="onChange">
+                <option :value="index" :key="index" v-for="(bar, index) in items.bars">
+                  Progress Bar {{ index + 1 }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
 
-            <select name="selectProgressBar" id="selectProgressBar" @change="onChange">
-              <option :value="index" :key="index" v-for="(bar, index) in items.bars">
-                Progress Bar {{ index + 1 }}
-              </option>
-            </select>
-
+        <div class="columns is-centered">
+          <div class="buttons">
             <progress-button :button="button" :key="index" v-for="(button, index) in items.buttons"
                              @setValue="setValue"></progress-button>
           </div>
@@ -29,6 +33,7 @@
 </template>
 
 <script>
+  import axios from 'axios'
   import ProgressBar from '@/components/ProgressBar'
   import ProgressButton from '@/components/ProgressButton'
 
@@ -45,21 +50,20 @@
       this.getData()
     },
     methods: {
-      async getData () {
-        const response = await window.axios.get('http://pb-api.herokuapp.com/bars')
-
-        this.items = response.data
+      getData () {
+        return axios.get('http://pb-api.herokuapp.com/bars').then(response => {
+          this.items = response.data
+        })
       },
       onChange (ev) {
-        this.selectedProgressBar = ev.target.value
+        this.selectedProgressBar = parseInt(ev.target.value)
       },
       setValue (value) {
-        const oldValue = this.items.bars[this.selectedProgressBar]
-        let newValue = oldValue + value
+        let newValue = this.items.bars[this.selectedProgressBar] + value
 
         if (newValue <= 0) newValue = 0
 
-        this.$set(this.items.bars, this.selectedProgressBar, newValue)
+        this.items.bars[this.selectedProgressBar] = newValue
       }
     }
   }

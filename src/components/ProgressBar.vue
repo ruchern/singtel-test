@@ -1,12 +1,12 @@
 <template>
   <div class="columns">
     <div class="column">
-      <progress :id="`progress-${id}`" class="progress is-medium" :class="[ bar >= limit ? 'is-danger' : 'is-info' ]"
+      <progress :id="`progress-${id}`" class="progress is-medium" :class="[ hasExceedLimit ? 'is-danger' : 'is-info' ]"
                 :value="bar" max="100"></progress>
     </div>
 
     <div class="column">
-      <p class="content has-text-weight-bold" :class="{ 'has-text-danger': bar >= limit }">{{ bar }}%</p>
+      <p class="content has-text-weight-bold" :class="{ 'has-text-danger': hasExceedLimit }">{{ bar }}%</p>
     </div>
   </div>
 </template>
@@ -18,10 +18,11 @@
       id: Number,
       bar: Number,
       limit: Number
+    },
+    computed: {
+      hasExceedLimit () {
+        return this.bar >= this.limit
+      }
     }
   }
 </script>
-
-<style scoped>
-
-</style>

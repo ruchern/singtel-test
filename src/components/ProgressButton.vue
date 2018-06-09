@@ -1,12 +1,18 @@
 <template>
-  <button @click="setValue(button)">{{ button }}</button>
+  <button class="button is-medium" @click="setValue(button)">{{ button | formatSign }}</button>
 </template>
 
 <script>
+
   export default {
     name: 'ProgressButton',
     props: {
       button: Number
+    },
+    filters: {
+      formatSign (value) {
+        return value > 0 ? `+${value}` : value
+      }
     },
     methods: {
       setValue (value) {
@@ -15,7 +21,3 @@
     }
   }
 </script>
-
-<style scoped>
-
-</style>
