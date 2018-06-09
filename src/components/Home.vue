@@ -21,11 +21,9 @@
           </div>
         </div>
 
-        <div class="columns is-centered">
-          <div class="buttons">
-            <progress-button :button="button" :key="index" v-for="(button, index) in items.buttons"
-                             @setValue="setValue"></progress-button>
-          </div>
+        <div class="buttons is-centered">
+          <progress-button :button="button" :key="index" v-for="(button, index) in items.buttons"
+                           @setValue="setValue"></progress-button>
         </div>
       </div>
     </div>
@@ -63,7 +61,7 @@
 
         if (newValue <= 0) newValue = 0
 
-        this.items.bars[this.selectedProgressBar] = newValue
+        this.$set(this.items.bars, this.selectedProgressBar, newValue)
       }
     }
   }

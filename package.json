@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "yarn dev",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
-    "test": "yarn unit",
+    "test": "yarn unit && codecov -t $CODECOV_TOKEN",
     "lint": "eslint --ext .js,.vue src test/unit",
     "build": "node build/build.js"
   },

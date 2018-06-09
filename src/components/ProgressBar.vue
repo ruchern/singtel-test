@@ -1,11 +1,15 @@
 <template>
   <div class="columns">
+    <div class="column is-1">
+      <p class="content has-text-weight-bold">#{{ id + 1 }}</p>
+    </div>
+
     <div class="column">
       <progress :id="`progress-${id}`" class="progress is-medium" :class="[ hasExceedLimit ? 'is-danger' : 'is-info' ]"
                 :value="bar" max="100"></progress>
     </div>
 
-    <div class="column">
+    <div class="column is-1">
       <p class="content has-text-weight-bold" :class="{ 'has-text-danger': hasExceedLimit }">{{ bar }}%</p>
     </div>
   </div>
