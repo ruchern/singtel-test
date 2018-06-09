@@ -16,6 +16,6 @@ jobs:
           paths:
             - node_modules/
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: yarn test
+      - run: yarn test && codecov -t $CODECOV_TOKEN
       - store_test_results:
           path: test/unit/coverage/clover.xml
