@@ -49,7 +49,7 @@
     },
     methods: {
       getData () {
-        return axios.get('http://pb-api.herokuapp.com/bars').then(response => {
+        return axios.get('//pb-api.herokuapp.com/bars').then(response => {
           this.items = response.data
         })
       },
