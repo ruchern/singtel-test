@@ -18,7 +18,7 @@ describe('Home', () => {
     })
   })
 
-  test('should retrive array of objects from the API call', async () => {
+  test('should retrieve array of objects from the API call', async () => {
     await wrapper.vm.getData()
 
     expect(wrapper.vm.items.bars.length).toBeGreaterThan(0)
