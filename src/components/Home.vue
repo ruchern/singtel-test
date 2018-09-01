@@ -27,25 +27,31 @@
         </div>
       </div>
     </div>
+
+    <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
+      <loading-screen v-if="showLoader"></loading-screen>
+    </transition>
   </section>
 </template>
 
 <script>
   import axios from 'axios'
+  import LoadingScreen from '@/components/LoadingScreen'
   import ProgressBar from '@/components/ProgressBar'
   import ProgressButton from '@/components/ProgressButton'
 
   export default {
     name: 'Home',
-    components: { ProgressBar, ProgressButton },
+    components: { LoadingScreen, ProgressBar, ProgressButton },
     data () {
       return {
+        showLoader: true,
         items: {},
         selectedProgressBar: 0
       }
     },
     mounted () {
-      this.getData()
+      this.getData().then(() => this.showLoader = false)
     },
     methods: {
       getData () {
