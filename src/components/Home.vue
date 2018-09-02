@@ -51,7 +51,7 @@
       }
     },
     mounted () {
-      this.getData().then(() => this.showLoader = false)
+      this.getData().then(() => { this.showLoader = false })
     },
     methods: {
       getData () {
