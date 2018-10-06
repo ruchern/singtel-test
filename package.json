@@ -10,8 +10,7 @@
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "test": "yarn unit && codecov -t $CODECOV_TOKEN",
     "lint": "eslint --ext .js,.vue src test/unit",
-    "build": "node build/build.js",
-    "precommit": "lint-staged"
+    "build": "node build/build.js"
   },
   "dependencies": {
     "animate.css": "^3.7.0",
@@ -87,6 +86,11 @@
     "last 2 versions",
     "not ie <= 8"
   ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "*.{vue,js}": [
       "eslint --fix",
