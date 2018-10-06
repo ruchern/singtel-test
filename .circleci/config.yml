@@ -10,6 +10,7 @@ jobs:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
+      - run: npm install --global yarn@latest
       - run: yarn global add codecov
       - run: yarn
       - save_cache:
