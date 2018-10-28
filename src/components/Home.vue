@@ -51,11 +51,13 @@
       }
     },
     mounted () {
-      this.getData().then(() => { this.showLoader = false })
+      this.getData().then(() => {
+        this.showLoader = false
+      })
     },
     methods: {
       getData () {
-        return axios.get('//pb-api.herokuapp.com/bars').then(response => {
+        return axios.get('https://pb-api.herokuapp.com/bars').then(response => {
           this.items = response.data
         })
       },
