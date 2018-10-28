@@ -81,7 +81,8 @@
   },
   "engines": {
     "node": ">= 8.0.0",
-    "npm": ">= 6.0.0"
+    "npm": ">= 6.0.0",
+    "yarn": ">= 1.10.0"
   },
   "browserslist": [
     "> 1%",
@@ -90,12 +91,12 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && yarn unit"
+      "pre-commit": "lint-staged && yarn test"
     }
   },
   "lint-staged": {
     "*.{vue,js}": [
-      "prettier --single-quotes --write",
+      "prettier --single-quote --write",
       "eslint --fix",
       "git add"
     ]
