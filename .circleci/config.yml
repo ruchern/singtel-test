@@ -9,14 +9,18 @@ jobs:
         keys:
         - v1-dependencies-{{ checksum "package.json" }}
         - v1-dependencies-
-    - run: yarn
+    - run:
+        name: Install packages
+        command: yarn
     - save_cache:
         paths:
         - node_modules/
         key: v1-dependencies-{{ checksum "package.json" }}
-    - run: |
-        yarn test
-        yarn codecov -t $CODECOV_TOKEN
+    - run:
+        name: Run tests and upload to Codecov
+        command: |
+          yarn test
+          yarn codecov -t $CODECOV_TOKEN
     - store_test_results:
         path: test/unit
 
