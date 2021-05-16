@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     getData () {
-      return axios.get('https://pb-api.herokuapp.com/bars').then(response => {
+      return axios.get('http://pb-api.herokuapp.com/bars').then(response => {
         this.items = response.data
       })
     },
