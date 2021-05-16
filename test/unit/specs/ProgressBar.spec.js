@@ -6,7 +6,7 @@ describe('ProgressBar', () => {
 
   beforeEach(() => {
     wrapper = shallowMount(ProgressBar, {
-      attachToDocument: true
+      attachTo: document.body
     })
   })
 

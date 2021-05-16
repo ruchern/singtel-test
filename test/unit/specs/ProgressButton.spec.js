@@ -5,7 +5,9 @@ describe('ProgressButton', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = shallowMount(ProgressButton)
+    wrapper = shallowMount(ProgressButton, {
+      attachTo: document.body
+    })
   })
 
   test('should format value with a positive sign when the value is positive', () => {
