@@ -2,11 +2,15 @@
 
 [![codecov](https://codecov.io/gh/ruchern-chong/vue-progress-bars/branch/master/graph/badge.svg?token=0lXuOtUgHC)](https://codecov.io/gh/ruchern-chong/vue-progress-bars)
 
+## Note
+
+The API endpoint is now dead. As such, some of the functionalities may not work as intended.
+
 ## Setup
 
 In this README, I will be using `npm`. Feel free to use `yarn` at your own discretion.
 
-``` bash
+```bash
 # install dependencies
 npm install
 
