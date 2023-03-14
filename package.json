@@ -2,7 +2,7 @@
   "name": "vue-progress-bars",
   "version": "1.0.4",
   "description": "A Vue.js project",
-  "author": "Ru Chern Chong <dev@ruchern.xyz>",
+  "author": "Ru Chern Chong <hello@ruchern.xyz>",
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
